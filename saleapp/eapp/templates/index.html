@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">e-commerce</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ,me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Trang chu</a>
+                </li>
+                {% for c in categories%}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{{c.name}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Tim san pham..">
+        <button class="btn btn-primary" type="button">Tim</button>
+      </form>
+        </div>
+    </div>
+</nav>
+<section class="container">
+    <div class='row'>
+        {% for p in products %}
+        <div class="col-md-3 col-6 p-2">
+            <div class="card" style="width:400px">
+                <img class="card-img-top" src="{{p.image}}" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">{{p.name}}</h4>
+                    <p class="card-text">{{p.price}} VND</p>
+                    <a href="#" class="btn btn-primary">Chi Tiet</a>
+                    <a href="#" class="btn btn-danger">Mua</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<footer>
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+  <h1>E-commerce</h1>
+  <p>OU</p>
+</div>
+</footer>
+
+</body>
+</html>
